@@ -1,0 +1,8 @@
+base_xp: 1000.0
+level_multiplier: 1.2
+xp_multipliers:
+  legendary: 5.0
+  epic: 3.0
+  rare: 2.0
+  uncommon: 1.5
+  common: 1.0

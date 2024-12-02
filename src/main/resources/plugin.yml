@@ -1,0 +1,35 @@
+name: betterFishing
+version: '2.0.0'
+main: jefry.plugin.betterFishing.BetterFishing
+api-version: '1.21'
+depend: [Vault]
+softdepend: [Essentials, Economy]
+
+commands:
+  fishrod:
+    description: BetterFishing rod management command
+    usage: /betterfishing <reload|give|reset> [tier] [player]
+    aliases: [bfishing, betterfishing]
+    permission: betterfishing.use
+permissions:
+  betterfishing.use:
+    description: Base permission for BetterFishing commands
+    default: op
+  betterfishing.reload:
+    description: Allows reloading fishing rod configurations
+    default: op
+  betterfishing.give:
+    description: Allows giving fishing rods
+    default: op
+  betterfishing.adminRod:
+    description: Allows managing fishing rods and rod configurations
+    default: op
+  betterfishing.admin:
+    description: Access to the main admin panel
+    default: op
+  betterfishing.admin.rods:
+    description: Manage fishing rods
+    default: op
+  betterfishing.admin.fish:
+    description: Manage fish items
+    default: op

@@ -1,0 +1,57 @@
+  fishingrods:
+    starter:
+      display-name: "§6Starter Fishing Rod"
+      upgrades-allowed: 3
+      weight-multiplier: 1.0  # Base multiplier for fish weight
+      rarity-bonus: 0.1  # 10% chance to upgrade rarity
+      legendary-chance: 0.01  # 1% chance to catch legendary
+      enchantments:
+        - lure: 1
+        - luck-of-the-sea: 1
+
+    advanced:
+      display-name: "§bAdvanced Fishing Rod"
+      upgrades-allowed: 5
+      weight-multiplier: 1.5  # 50% increase in fish weight
+      rarity-bonus: 0.2  # 20% chance to upgrade rarity
+      legendary-chance: 0.03  # 3% chance to catch legendary
+      enchantments:
+        - lure: 3
+        - luck-of-the-sea: 3
+        - unbreaking: 2
+
+    legendary:
+      display-name: "§6Legendary Fishing Rod"
+      upgrades-allowed: 7
+      weight-multiplier: 2.0  # Double fish weight
+      rarity-bonus: 0.35  # 35% chance to upgrade rarity
+      legendary-chance: 0.07  # 7% chance to catch legendary
+      enchantments:
+        - lure: 5
+        - luck-of-the-sea: 5
+        - unbreaking: 3
+        - mending: 1
+
+    ultimate:
+      display-name: "§5Ultimate Fishing Rod"
+      upgrades-allowed: 10
+      weight-multiplier: 3.0  # Triple fish weight
+      rarity-bonus: 0.5  # 50% chance to upgrade rarity
+      legendary-chance: 0.15  # 15% chance to catch legendary
+      enchantments:
+        - lure: 6
+        - luck-of-the-sea: 6
+        - unbreaking: 4
+        - mending: 2
+
+    master:
+      display-name: "§d§lMaster Fishing Rod"
+      upgrades-allowed: 15
+      weight-multiplier: 4.0  # Quadruple fish weight
+      rarity-bonus: 0.75  # 75% chance to upgrade rarity
+      legendary-chance: 0.25  # 25% chance to catch legendary
+      enchantments:
+        - lure: 7
+        - luck-of-the-sea: 7
+        - unbreaking: 5
+        - mending: 3

@@ -1,0 +1,151 @@
+# BetterFishing Item Configuration
+
+# Global Settings
+settings:
+  debug_mode: false
+  default_catch_multiplier: 1.0
+
+# Permanent Items Configuration
+permanent_items:
+  cod:
+    item: COD
+    display_name: "Fresh Cod"
+    rarity: COMMON
+    locations:
+      - OCEAN
+      - RIVER
+      - BEACH
+    weight_range:
+      min: 5.0
+      max: 15.0
+    catch_chance: 40.0
+    lore:
+      - "§7A common fish found in most waters"
+
+  salmon:
+    item: SALMON
+    display_name: "Wild Salmon"
+    rarity: UNCOMMON
+    locations:
+      - RIVER
+      - COLD_OCEAN
+      - BEACH
+    weight_range:
+      min: 8.0
+      max: 20.0
+    catch_chance: 30.0
+    lore:
+      - "§aA healthy and delicious fish"
+      - "§7Commonly found in rivers"
+
+  tropical_fish:
+    item: TROPICAL_FISH
+    display_name: "Exotic Fish"
+    rarity: RARE
+    locations:
+      - WARM_OCEAN
+      - LUKEWARM_OCEAN
+    weight_range:
+      min: 2.0
+      max: 8.0
+    catch_chance: 20.0
+    lore:
+      - "§bA colorful tropical species"
+
+  pufferfish:
+    item: PUFFERFISH
+    display_name: "Poisonous Pufferfish"
+    rarity: EPIC
+    locations:
+      - WARM_OCEAN
+    weight_range:
+      min: 3.0
+      max: 10.0
+    catch_chance: 10.0
+    lore:
+      - "§5Handle with care!"
+      - "§7Highly poisonous"
+
+# Temporary Items Configuration
+temporary_items:
+  spring_koi:
+    item: TROPICAL_FISH
+    display_name: "Spring Festival Koi"
+    rarity: LEGENDARY
+    duration:
+      start: "2024-03-01 00:00:00"
+      end: "2024-03-31 23:59:59"
+    locations:
+      - RIVER
+      - LAKE
+      - BEACH
+    weight_range:
+      min: 15.0
+      max: 30.0
+    catch_chance: 5.0
+    lore:
+      - "§6A magnificent koi fish that appears"
+      - "§6during the spring festival"
+
+  summer_tuna:
+    item: COD
+    display_name: "Summer Albacore Tuna"
+    rarity: EPIC
+    duration:
+      start: "2024-06-01 00:00:00"
+      end: "2024-08-31 23:59:59"
+    locations:
+      - OCEAN
+      - BEACH
+    weight_range:
+      min: 20.0
+      max: 45.0
+    catch_chance: 8.0
+    lore:
+      - "§5A prized summer catch"
+
+# Location definitions
+locations:
+  OCEAN:
+    biomes:
+      - OCEAN
+      - DEEP_OCEAN
+      - DEEP_LUKEWARM_OCEAN
+      - DEEP_COLD_OCEAN
+  RIVER:
+    biomes:
+      - RIVER
+      - FROZEN_RIVER
+  LAKE:
+    biomes:
+      - SWAMP
+      - MANGROVE_SWAMP
+      # - MUDDY_MANGROVE_SWAMP  # Uncomment this if needed
+  BEACH:
+    biomes:
+      - BEACH
+      - SNOWY_BEACH
+      - STONY_SHORE
+
+# Rarity Settings
+rarity_settings:
+  COMMON:
+    color: "§7"
+    xp_reward: 10
+    weight_multiplier: 1.0
+  UNCOMMON:
+    color: "§a"
+    xp_reward: 25
+    weight_multiplier: 1.2
+  RARE:
+    color: "§b"
+    xp_reward: 50
+    weight_multiplier: 1.5
+  EPIC:
+    color: "§5"
+    xp_reward: 100
+    weight_multiplier: 2.0
+  LEGENDARY:
+    color: "§6"
+    xp_reward: 250
+    weight_multiplier: 3.0
