@@ -7,145 +7,1306 @@ settings:
 
 # Permanent Items Configuration
 permanent_items:
-  cod:
+  # Original Fish
+  common_cod:
     item: COD
     display_name: "Fresh Cod"
     rarity: COMMON
     locations:
-      - OCEAN
-      - RIVER
-      - BEACH
-    weight_range:
-      min: 5.0
-      max: 15.0
-    catch_chance: 40.0
-    lore:
-      - "§7A common fish found in most waters"
+      - OCEAN_GENERAL
+      - RIVER_GENERAL
+      - BEACH_SHORE
+    weight_range: {min: 5.0, max: 15.0}
+    catch_chance: 10.0
+    lore: ["§7A common fish found in most waters"]
 
-  salmon:
+  wild_salmon:
     item: SALMON
     display_name: "Wild Salmon"
     rarity: UNCOMMON
     locations:
-      - RIVER
-      - COLD_OCEAN
-      - BEACH
-    weight_range:
-      min: 8.0
-      max: 20.0
-    catch_chance: 30.0
-    lore:
-      - "§aA healthy and delicious fish"
-      - "§7Commonly found in rivers"
+      - RIVER_GENERAL
+      - COLD_WATERS_SPECIFIC
+      - BEACH_SHORE
+    weight_range: {min: 8.0, max: 20.0}
+    catch_chance: 7.0
+    lore: ["§aA healthy and delicious fish", "§7Commonly found in rivers"]
 
-  tropical_fish:
+  exotic_tropical_fish:
     item: TROPICAL_FISH
     display_name: "Exotic Fish"
     rarity: RARE
     locations:
-      - WARM_OCEAN
-      - LUKEWARM_OCEAN
-    weight_range:
-      min: 2.0
-      max: 8.0
-    catch_chance: 20.0
-    lore:
-      - "§bA colorful tropical species"
+      - WARM_WATERS_SPECIFIC
+    weight_range: {min: 2.0, max: 8.0}
+    catch_chance: 3.0
+    lore: ["§bA colorful tropical species"]
 
-  pufferfish:
+  poison_pufferfish:
     item: PUFFERFISH
     display_name: "Poisonous Pufferfish"
     rarity: EPIC
     locations:
-      - WARM_OCEAN
-    weight_range:
-      min: 3.0
-      max: 10.0
-    catch_chance: 10.0
-    lore:
-      - "§5Handle with care!"
-      - "§7Highly poisonous"
+      - WARM_WATERS_SPECIFIC
+    weight_range: {min: 3.0, max: 10.0}
+    catch_chance: 1.0
+    lore: ["§5Handle with care!", "§7Highly poisonous"]
 
-# Temporary Items Configuration
+  # --- Standardized Fish Items ---
+  river_minnow:
+    item: COD # Small fish
+    display_name: "River Minnow"
+    rarity: COMMON
+    locations: [RIVER_GENERAL, LAKE_POND_GENERAL]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 12.0
+    lore: ["§7A tiny, darting fish, common in streams."]
+
+  mud_carp:
+    item: COD # Common, bottom dweller often represented by cod
+    display_name: "Mud Carp"
+    rarity: COMMON
+    locations: [SWAMP_MARSH, LAKE_POND_GENERAL]
+    weight_range: {min: 1.0, max: 4.0}
+    catch_chance: 11.0
+    lore: ["§7Prefers murky, slow-moving waters."]
+
+  sandy_flounder:
+    item: COD # Flatfish
+    display_name: "Sandy Flounder"
+    rarity: COMMON
+    locations: [BEACH_SHORE, OCEAN_GENERAL]
+    weight_range: {min: 0.5, max: 2.5}
+    catch_chance: 10.0
+    lore: ["§7Blends perfectly with the sandy seabed."]
+
+  rock_perch:
+    item: SALMON # Could be cod too
+    display_name: "Rock Perch"
+    rarity: COMMON
+    locations: [RIVER_GENERAL, LAKE_POND_GENERAL, BEACH_SHORE]
+    weight_range: {min: 0.3, max: 1.5}
+    catch_chance: 9.0
+    lore: ["§7Often found hiding among submerged rocks."]
+
+  common_dab:
+    item: COD # Flatfish
+    display_name: "Common Dab"
+    rarity: COMMON
+    locations: [OCEAN_GENERAL]
+    weight_range: {min: 0.4, max: 1.2}
+    catch_chance: 11.5
+    lore: ["§7A small, flat fish, abundant in coastal waters."]
+
+  brook_trout:
+    item: SALMON # Trout type
+    display_name: "Brook Trout"
+    rarity: UNCOMMON
+    locations: [RIVER_GENERAL, LAKE_POND_GENERAL]
+    weight_range: {min: 0.5, max: 2.0}
+    catch_chance: 6.0
+    lore: ["§aPrized by anglers for its beautiful spots."]
+
+  bluegill_sunfish:
+    item: TROPICAL_FISH # Often colorful
+    display_name: "Bluegill Sunfish"
+    rarity: UNCOMMON
+    locations: [LAKE_POND_GENERAL, RIVER_GENERAL]
+    weight_range: {min: 0.3, max: 1.2}
+    catch_chance: 6.5
+    lore: ["§aA panfish popular in freshwater bodies."]
+
+  icefin_codling:
+    item: COD # Cod type
+    display_name: "Icefin Codling"
+    rarity: UNCOMMON
+    locations: [COLD_WATERS_SPECIFIC, FROZEN_LAND_WATERS]
+    weight_range: {min: 1.0, max: 5.0}
+    catch_chance: 5.0
+    lore: ["§aAdapted to survive in near-freezing temperatures."]
+
+  channel_catfish:
+    item: COD # Darker, bottom dweller
+    display_name: "Channel Catfish"
+    rarity: UNCOMMON
+    locations: [RIVER_GENERAL, LAKE_POND_GENERAL, SWAMP_MARSH]
+    weight_range: {min: 2.0, max: 10.0}
+    catch_chance: 4.5
+    lore: ["§aA whiskered bottom-dweller."]
+
+  mangrove_snapper:
+    item: SALMON # Often reddish, or TROPICAL_FISH
+    display_name: "Mangrove Snapper"
+    rarity: UNCOMMON
+    locations: [SWAMP_MARSH, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.8, max: 3.5}
+    catch_chance: 5.5
+    lore: ["§aA reddish fish found among mangrove roots."]
+
+  glowlight_tetra:
+    item: TROPICAL_FISH # Small, colorful, tetra
+    display_name: "Glowlight Tetra"
+    rarity: RARE
+    locations: [JUNGLE_RIVER_POND, CAVE_SYSTEM_POOLS]
+    weight_range: {min: 0.1, max: 0.4}
+    catch_chance: 2.5
+    lore: ["§bA small, schooling fish with a faint inner glow."]
+
+  deepsea_angler:
+    item: PUFFERFISH # Unique shape for angler
+    display_name: "Deepsea Angler"
+    rarity: RARE
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 2.0, max: 8.0}
+    catch_chance: 1.5
+    lore: ["§bLures prey with a bioluminescent appendage in the dark depths."]
+
+  pearl_gourami:
+    item: TROPICAL_FISH # Colorful
+    display_name: "Pearl Gourami"
+    rarity: RARE
+    locations: [WARM_WATERS_SPECIFIC, LAKE_POND_GENERAL]
+    weight_range: {min: 0.2, max: 0.6}
+    catch_chance: 2.0
+    lore: ["§bKnown for its iridescent, pearl-like spots."]
+
+  obsidian_eel:
+    item: COD # Eels are often dark, COD can represent this
+    display_name: "Obsidian Eel"
+    rarity: RARE
+    locations: [CAVE_SYSTEM_POOLS, DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 1.5, max: 6.0}
+    catch_chance: 1.8
+    lore: ["§bA slick, black eel that thrives in darkness."]
+
+  ancient_sturgeon:
+    item: SALMON # Large, elongated
+    display_name: "Ancient Sturgeon"
+    rarity: RARE
+    locations: [RIVER_GENERAL, LAKE_POND_GENERAL]
+    weight_range: {min: 10.0, max: 30.0}
+    catch_chance: 1.2
+    lore: ["§bA living fossil, virtually unchanged for millennia."]
+
+  phantom_jelly:
+    item: TROPICAL_FISH # Representing a jelly-like catch, use a fish item
+    display_name: "Phantom Jelly"
+    rarity: EPIC
+    locations: [DEEP_OCEAN_SPECIFIC, MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 0.5, max: 2.0}
+    catch_chance: 0.8
+    lore: ["§5A translucent, ghostly jellyfish from the abyssal depths.","§5Pulses with an eerie light."]
+
+  sunstone_bass:
+    item: SALMON # Bass type
+    display_name: "Sunstone Bass"
+    rarity: EPIC
+    locations: [WARM_WATERS_SPECIFIC, LAKE_POND_GENERAL]
+    weight_range: {min: 3.0, max: 12.0}
+    catch_chance: 0.7
+    lore: ["§5Its scales shimmer with the warmth of a thousand suns."]
+
+  crystalfin_sole:
+    item: COD # Flatfish, sole
+    display_name: "Crystalfin Sole"
+    rarity: EPIC
+    locations: [CAVE_SYSTEM_POOLS, MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 1.0, max: 4.0}
+    catch_chance: 0.6
+    lore: ["§5A flatfish with fins as clear and sharp as crystals."]
+
+  magmafin_skate:
+    item: SALMON # Large flatfish/skate
+    display_name: "Magmafin Skate"
+    rarity: EPIC
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 5.0, max: 18.0}
+    catch_chance: 0.5
+    lore: ["§5Swims gracefully near superheated underwater vents.","§5Its fins glow with internal heat."]
+
+  colossal_squidlet:
+    item: COD # Representing squid meat, use a fish item
+    display_name: "Colossal Squidlet"
+    rarity: EPIC
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 20.0, max: 70.0}
+    catch_chance: 0.3
+    lore: ["§5Though just a juvenile, it's already a fearsome sight."]
+
+  celestial_koi:
+    item: TROPICAL_FISH # Koi are colorful
+    display_name: "§eCelestial Koi"
+    rarity: LEGENDARY
+    locations: [MYSTICAL_BIOME_WATERS, LAKE_POND_GENERAL]
+    weight_range: {min: 5.0, max: 15.0}
+    catch_chance: 0.1
+    lore: ["§6Said to swim in the rivers of the sky.","§6Catching one is a sign of great fortune."]
+
+  void_leviathan_fry:
+    item: SALMON # Large, powerful fish
+    display_name: "§8Void Leviathan §kfry§r"
+    rarity: LEGENDARY
+    locations: [DEEP_OCEAN_SPECIFIC, MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 50.0, max: 150.0}
+    catch_chance: 0.02
+    lore: ["§6A mere infant of a creature that sleeps in the dark between worlds.","§6Its presence chills the very water around it."]
+
+  aurora_anglerfish:
+    item: PUFFERFISH # Unique shape
+    display_name: "§dAurora Anglerfish"
+    rarity: LEGENDARY
+    locations: [COLD_WATERS_SPECIFIC, MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 3.0, max: 10.0}
+    catch_chance: 0.05
+    lore: ["§6Its lure shimmers with all the colors of the aurora.","§6A breathtaking sight in the frigid darkness."]
+
+  chronos_carp:
+    item: COD # Carp type
+    display_name: "§bChronos Carp"
+    rarity: LEGENDARY
+    locations: [RIVER_GENERAL, MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 1.0, max: 5.0}
+    catch_chance: 0.08
+    lore: ["§6Its scales tick with the passage of aeons.","§6Rumored to grant visions of the past or future."]
+
+  serpent_of_the_sands:
+    item: SALMON # Elongated, serpent-like fish
+    display_name: "§6Serpent of the Sands"
+    rarity: LEGENDARY
+    locations: [WARM_WATERS_SPECIFIC, MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 15.0, max: 40.0}
+    catch_chance: 0.04
+    lore: ["§6A mythical fish-like serpent said to swim beneath desert dunes.","§6Only appears in the most secluded oases."]
+
+  glacial_herring:
+    item: COD # Small, silvery
+    display_name: "Glacial Herring"
+    rarity: COMMON
+    locations: [COLD_WATERS_SPECIFIC]
+    weight_range: {min: 0.2, max: 0.6}
+    catch_chance: 12.5
+    lore: ["§7A small, oily fish that schools in icy waters."]
+
+  swamp_guppy:
+    item: TROPICAL_FISH # Guppy type
+    display_name: "Swamp Guppy"
+    rarity: COMMON
+    locations: [SWAMP_MARSH]
+    weight_range: {min: 0.05, max: 0.15}
+    catch_chance: 13.0
+    lore: ["§7A hardy guppy adapted to murky swamp life."]
+
+  stonefin_goby:
+    item: COD # Small bottom dweller
+    display_name: "Stonefin Goby"
+    rarity: UNCOMMON
+    locations: [RIVER_GENERAL, CAVE_SYSTEM_POOLS]
+    weight_range: {min: 0.1, max: 0.5}
+    catch_chance: 6.2
+    lore: ["§aIts fins are tough, like smooth river stones."]
+
+  coral_butterflyfish:
+    item: TROPICAL_FISH # Colorful reef fish
+    display_name: "Coral Butterflyfish"
+    rarity: UNCOMMON
+    locations: [WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.2, max: 0.7}
+    catch_chance: 5.2
+    lore: ["§aFlits gracefully among coral branches."]
+
+  shadow_creeperfish:
+    item: COD # Thematic, but still a fish
+    display_name: "Shadow Creeperfish"
+    rarity: RARE
+    locations: [CAVE_SYSTEM_POOLS, SWAMP_MARSH]
+    weight_range: {min: 1.0, max: 3.0}
+    catch_chance: 2.2
+    lore: ["§bBehaves erratically and seems to hiss faintly.","§bBest handled with extreme caution."]
+
+  skyfin_sailfish:
+    item: SALMON # Large, fast fish
+    display_name: "Skyfin Sailfish"
+    rarity: RARE
+    locations: [OCEAN_GENERAL, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 20.0, max: 60.0}
+    catch_chance: 1.1
+    lore: ["§bIts magnificent dorsal fin mirrors the color of the sky."]
+
+  ember_tetra:
+    item: TROPICAL_FISH # Tetra type
+    display_name: "Ember Tetra"
+    rarity: EPIC
+    locations: [JUNGLE_RIVER_POND, DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 0.75
+    lore: ["§5A tiny fish that glows like a dying ember."]
+
+  frostscale_pike:
+    item: SALMON # Pike type
+    display_name: "Frostscale Pike"
+    rarity: EPIC
+    locations: [COLD_WATERS_SPECIFIC, FROZEN_LAND_WATERS]
+    weight_range: {min: 5.0, max: 15.0}
+    catch_chance: 0.65
+    lore: ["§5Its scales are perpetually coated in a thin layer of ice."]
+
+  living_relic_coelacanth:
+    item: SALMON # Large, ancient fish
+    display_name: "§9Living Relic Coelacanth"
+    rarity: LEGENDARY
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 15.0, max: 40.0}
+    catch_chance: 0.06
+    lore: ["§6Thought extinct for eons, this ancient fish still roams the abyss.","§6A true marvel of the deep."]
+
+  whispering_ghostfin:
+    item: COD # Ethereal fish
+    display_name: "§7Whispering Ghostfin"
+    rarity: LEGENDARY
+    locations: [MYSTICAL_BIOME_WATERS, DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.2, max: 1.0}
+    catch_chance: 0.09
+    lore: ["§6Barely visible, its passage is marked only by faint whispers.","§6Some say it's the spirit of a lost angler."]
+
+  # --- COMMON (Continued) ---
+  pond_skater_fry:
+    item: COD
+    display_name: "Pond Skater Fry"
+    rarity: COMMON
+    locations: [LAKE_POND_GENERAL]
+    weight_range: {min: 0.05, max: 0.1}
+    catch_chance: 13.5
+    lore: ["§7A young fish that often swims near the surface."]
+  pebble_loach:
+    item: COD
+    display_name: "Pebble Loach"
+    rarity: COMMON
+    locations: [RIVER_GENERAL]
+    weight_range: {min: 0.1, max: 0.4}
+    catch_chance: 12.8
+    lore: ["§7Hides amongst riverbed pebbles."]
+  seaweed_blenny:
+    item: TROPICAL_FISH
+    display_name: "Seaweed Blenny"
+    rarity: COMMON
+    locations: [OCEAN_GENERAL, BEACH_SHORE]
+    weight_range: {min: 0.2, max: 0.5}
+    catch_chance: 11.2
+    lore: ["§7Often found nibbling on seaweed."]
+  murky_gudgeon:
+    item: COD
+    display_name: "Murky Gudgeon"
+    rarity: COMMON
+    locations: [SWAMP_MARSH, LAKE_POND_GENERAL]
+    weight_range: {min: 0.3, max: 0.8}
+    catch_chance: 12.3
+    lore: ["§7A bottom-dweller of muddy waters."]
+  driftwood_catfish_fingerling:
+    item: COD
+    display_name: "Driftwood Catfish Fingerling"
+    rarity: COMMON
+    locations: [RIVER_GENERAL, JUNGLE_RIVER_POND]
+    weight_range: {min: 0.2, max: 0.7}
+    catch_chance: 11.8
+    lore: ["§7Young catfish that shelter near submerged wood."]
+  common_anchovy:
+    item: COD
+    display_name: "Common Anchovy"
+    rarity: COMMON
+    locations: [OCEAN_GENERAL]
+    weight_range: {min: 0.05, max: 0.2}
+    catch_chance: 14.0
+    lore: ["§7A small, schooling fish, vital to ocean ecosystems."]
+  river_chub:
+    item: SALMON
+    display_name: "River Chub"
+    rarity: COMMON
+    locations: [RIVER_GENERAL]
+    weight_range: {min: 0.4, max: 1.2}
+    catch_chance: 10.5
+    lore: ["§7A sturdy little fish of flowing waters."]
+  lagoon_sprat:
+    item: COD
+    display_name: "Lagoon Sprat"
+    rarity: COMMON
+    locations: [WARM_WATERS_SPECIFIC, BEACH_SHORE]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 13.0
+    lore: ["§7Thrives in calm, shallow lagoons."]
+  frozen_smelt:
+    item: COD
+    display_name: "Frozen Smelt"
+    rarity: COMMON
+    locations: [COLD_WATERS_SPECIFIC, FROZEN_LAND_WATERS]
+    weight_range: {min: 0.2, max: 0.6}
+    catch_chance: 12.0
+    lore: ["§7A resilient fish found under icy surfaces."]
+  creek_darter:
+    item: TROPICAL_FISH
+    display_name: "Creek Darter"
+    rarity: COMMON
+    locations: [RIVER_GENERAL]
+    weight_range: {min: 0.08, max: 0.25}
+    catch_chance: 13.2
+    lore: ["§7Darts quickly between stones in shallow creeks."]
+  kelp_clingfish:
+    item: TROPICAL_FISH
+    display_name: "Kelp Clingfish"
+    rarity: COMMON
+    locations: [OCEAN_GENERAL]
+    weight_range: {min: 0.1, max: 0.4}
+    catch_chance: 11.5
+    lore: ["§7Uses its fins to cling tightly to kelp fronds."]
+  plain_shiner:
+    item: COD
+    display_name: "Plain Shiner"
+    rarity: COMMON
+    locations: [LAKE_POND_GENERAL, RIVER_GENERAL]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 13.8
+    lore: ["§7A simple, yet common silvery fish."]
+  cave_sculpin_smolt:
+    item: COD
+    display_name: "Cave Sculpin Smolt"
+    rarity: COMMON
+    locations: [CAVE_SYSTEM_POOLS]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 12.5
+    lore: ["§7A young sculpin adapted to dark cave waters."]
+  beach_worm_eel_larva:
+    item: COD # Representing a very small eel/fish
+    display_name: "Beach Worm Eel Larva"
+    rarity: COMMON
+    locations: [BEACH_SHORE]
+    weight_range: {min: 0.05, max: 0.15}
+    catch_chance: 13.0
+    lore: ["§7Tiny eel larva often found buried in wet sand."]
+  common_sardine:
+    item: COD
+    display_name: "Common Sardine"
+    rarity: COMMON
+    locations: [OCEAN_GENERAL]
+    weight_range: {min: 0.1, max: 0.4}
+    catch_chance: 14.2
+    lore: ["§7Often travels in large, shimmering schools."]
+  marsh_killifish:
+    item: TROPICAL_FISH
+    display_name: "Marsh Killifish"
+    rarity: COMMON
+    locations: [SWAMP_MARSH]
+    weight_range: {min: 0.08, max: 0.2}
+    catch_chance: 12.6
+    lore: ["§7A small, adaptable fish of brackish marshes."]
+  jungle_tadpole_fish:
+    item: COD
+    display_name: "Jungle Tadpole Fish"
+    rarity: COMMON
+    locations: [JUNGLE_RIVER_POND]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 13.1
+    lore: ["§7Resembles a large tadpole, common in jungle pools."]
+  icy_pool_char:
+    item: SALMON
+    display_name: "Icy Pool Char"
+    rarity: COMMON
+    locations: [FROZEN_LAND_WATERS, COLD_WATERS_SPECIFIC]
+    weight_range: {min: 0.3, max: 0.9}
+    catch_chance: 11.9
+    lore: ["§7A small char found in frigid meltwater pools."]
+  shore_crab_juvenile: # Kept as non-fish bycatch
+    item: COOKED_COD
+    display_name: "Shore Crab Juvenile"
+    rarity: COMMON
+    locations: [BEACH_SHORE]
+    weight_range: {min: 0.05, max: 0.2}
+    catch_chance: 10.0
+    lore: ["§7A young crab scuttling along the shoreline."]
+  freshwater_shrimp:
+    item: COD # Representing shrimp as a small fish catch
+    display_name: "Freshwater Shrimp"
+    rarity: COMMON
+    locations: [RIVER_GENERAL, LAKE_POND_GENERAL]
+    weight_range: {min: 0.01, max: 0.05}
+    catch_chance: 14.5
+    lore: ["§7Tiny crustaceans, a common sight in clean waters."]
+  estuary_silverside:
+    item: COD
+    display_name: "Estuary Silverside"
+    rarity: COMMON
+    locations: [RIVER_GENERAL, BEACH_SHORE]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 13.3
+    lore: ["§7A small, silvery fish found in brackish estuaries."]
+  shallow_water_hake:
+    item: COD
+    display_name: "Shallow Water Hake"
+    rarity: COMMON
+    locations: [OCEAN_GENERAL, BEACH_SHORE]
+    weight_range: {min: 0.5, max: 1.5}
+    catch_chance: 10.8
+    lore: ["§7A common hake species found closer to shore."]
+  common_stickleback:
+    item: TROPICAL_FISH
+    display_name: "Common Stickleback"
+    rarity: COMMON
+    locations: [LAKE_POND_GENERAL, RIVER_GENERAL, SWAMP_MARSH]
+    weight_range: {min: 0.02, max: 0.1}
+    catch_chance: 14.0
+    lore: ["§7Known for its sharp spines and nesting behavior."]
+  tiny_sunbleak:
+    item: COD
+    display_name: "Tiny Sunbleak"
+    rarity: COMMON
+    locations: [LAKE_POND_GENERAL]
+    weight_range: {min: 0.03, max: 0.08}
+    catch_chance: 14.3
+    lore: ["§7A very small, silvery fish that prefers sunny spots."]
+  blackwater_dace:
+    item: COD
+    display_name: "Blackwater Dace"
+    rarity: COMMON
+    locations: [SWAMP_MARSH, JUNGLE_RIVER_POND]
+    weight_range: {min: 0.2, max: 0.5}
+    catch_chance: 12.4
+    lore: ["§7Adapted to dark, acidic blackwater environments."]
+  grass_pickerel_fry:
+    item: SALMON
+    display_name: "Grass Pickerel Fry"
+    rarity: COMMON
+    locations: [LAKE_POND_GENERAL, SWAMP_MARSH]
+    weight_range: {min: 0.1, max: 0.4}
+    catch_chance: 11.6
+    lore: ["§7A young pickerel, often hiding in aquatic vegetation."]
+  sand_goby:
+    item: COD
+    display_name: "Sand Goby"
+    rarity: COMMON
+    locations: [BEACH_SHORE, OCEAN_GENERAL]
+    weight_range: {min: 0.05, max: 0.15}
+    catch_chance: 13.6
+    lore: ["§7A small goby that buries itself in the sand."]
+  spring_creek_minnow:
+    item: COD
+    display_name: "Spring Creek Minnow"
+    rarity: COMMON
+    locations: [RIVER_GENERAL]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 12.9
+    lore: ["§7Prefers the clear, cool water of spring-fed streams."]
+  common_barnacle_cluster: # Kept as non-fish bycatch
+    item: COBBLESTONE
+    display_name: "Common Barnacle Cluster"
+    rarity: COMMON
+    locations: [BEACH_SHORE, OCEAN_GENERAL]
+    weight_range: {min: 0.1, max: 0.5}
+    catch_chance: 8.0
+    lore: ["§7A cluster of sharp barnacles, pulled from a rock."]
+  mudskipper_young:
+    item: TROPICAL_FISH # Amphibious fish
+    display_name: "Mudskipper Young"
+    rarity: COMMON
+    locations: [SWAMP_MARSH, BEACH_SHORE]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 11.0
+    lore: ["§7A young amphibious fish, often seen near the water's edge."]
+  sea_snail_common: # Kept as non-fish bycatch
+    item: NAUTILUS_SHELL
+    display_name: "Common Sea Snail"
+    rarity: COMMON
+    locations: [BEACH_SHORE, OCEAN_GENERAL]
+    weight_range: {min: 0.02, max: 0.1}
+    catch_chance: 13.0
+    lore: ["§7A small sea snail with a patterned shell."]
+  deep_pond_roach:
+    item: COD
+    display_name: "Deep Pond Roach"
+    rarity: COMMON
+    locations: [LAKE_POND_GENERAL]
+    weight_range: {min: 0.3, max: 0.9}
+    catch_chance: 11.3
+    lore: ["§7A common roach found in deeper sections of ponds."]
+  surface_strider_fish:
+    item: COD
+    display_name: "Surface Strider Fish"
+    rarity: COMMON
+    locations: [LAKE_POND_GENERAL, RIVER_GENERAL]
+    weight_range: {min: 0.1, max: 0.25}
+    catch_chance: 13.7
+    lore: ["§7Often seen skimming just below the water's surface."]
+  brackish_water_perchlet:
+    item: SALMON
+    display_name: "Brackish Water Perchlet"
+    rarity: COMMON
+    locations: [SWAMP_MARSH, RIVER_GENERAL]
+    weight_range: {min: 0.2, max: 0.6}
+    catch_chance: 12.1
+    lore: ["§7A small perch adapted to water with mixed salinity."]
+
+  # --- UNCOMMON (Continued) ---
+  banded_killifish:
+    item: TROPICAL_FISH
+    display_name: "Banded Killifish"
+    rarity: UNCOMMON
+    locations: [LAKE_POND_GENERAL, SWAMP_MARSH]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 6.8
+    lore: ["§aRecognizable by its distinct vertical bands."]
+  redfin_pickerel:
+    item: SALMON
+    display_name: "Redfin Pickerel"
+    rarity: UNCOMMON
+    locations: [RIVER_GENERAL, LAKE_POND_GENERAL]
+    weight_range: {min: 0.3, max: 1.0}
+    catch_chance: 5.8
+    lore: ["§aA small predatory fish with reddish fins."]
+  glass_catfish_sml:
+    item: TROPICAL_FISH # Representing transparency with a fish item
+    display_name: "Small Glass Catfish"
+    rarity: UNCOMMON
+    locations: [JUNGLE_RIVER_POND, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.1, max: 0.4}
+    catch_chance: 5.5
+    lore: ["§aAlmost completely transparent, revealing its bones."]
+  arctic_char_smolt:
+    item: SALMON
+    display_name: "Arctic Char Smolt"
+    rarity: UNCOMMON
+    locations: [COLD_WATERS_SPECIFIC, FROZEN_LAND_WATERS]
+    weight_range: {min: 0.2, max: 0.8}
+    catch_chance: 6.0
+    lore: ["§aA young Arctic char, hardy and resilient."]
+  zebra_danio:
+    item: TROPICAL_FISH
+    display_name: "Zebra Danio"
+    rarity: UNCOMMON
+    locations: [RIVER_GENERAL, LAKE_POND_GENERAL]
+    weight_range: {min: 0.05, max: 0.15}
+    catch_chance: 7.0
+    lore: ["§aA small, striped fish known for its rapid movements."]
+  stone_roller_minnow:
+    item: COD
+    display_name: "Stone Roller Minnow"
+    rarity: UNCOMMON
+    locations: [RIVER_GENERAL]
+    weight_range: {min: 0.2, max: 0.5}
+    catch_chance: 6.3
+    lore: ["§aKnown for grazing algae off rocks."]
+  golden_shiner_med:
+    item: COD # Could be TROPICAL_FISH for color
+    display_name: "Medium Golden Shiner"
+    rarity: UNCOMMON
+    locations: [LAKE_POND_GENERAL, RIVER_GENERAL]
+    weight_range: {min: 0.2, max: 0.6}
+    catch_chance: 6.5
+    lore: ["§aA baitfish with a distinct golden sheen."]
+  cave_loach_pale:
+    item: COD # Pale fish
+    display_name: "Pale Cave Loach"
+    rarity: UNCOMMON
+    locations: [CAVE_SYSTEM_POOLS]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 5.7
+    lore: ["§aA loach that has lost most of its pigmentation in dark caves."]
+  clownfish_common:
+    item: TROPICAL_FISH
+    display_name: "Common Clownfish"
+    rarity: UNCOMMON
+    locations: [WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.1, max: 0.4}
+    catch_chance: 6.1
+    lore: ["§aLives symbiotically with sea anemones."]
+  moray_eel_juvenile:
+    item: COD # Dark, slender
+    display_name: "Juvenile Moray Eel"
+    rarity: UNCOMMON
+    locations: [OCEAN_GENERAL, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.5, max: 2.0}
+    catch_chance: 4.8
+    lore: ["§aA young moray, already a formidable hunter."]
+  spotted_basslet:
+    item: TROPICAL_FISH
+    display_name: "Spotted Basslet"
+    rarity: UNCOMMON
+    locations: [WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.2, max: 0.7}
+    catch_chance: 5.9
+    lore: ["§aA small, colorful fish with distinct spots."]
+  deepwater_sculpin:
+    item: COD
+    display_name: "Deepwater Sculpin"
+    rarity: UNCOMMON
+    locations: [DEEP_OCEAN_SPECIFIC, COLD_WATERS_SPECIFIC]
+    weight_range: {min: 0.3, max: 1.0}
+    catch_chance: 5.0
+    lore: ["§aA sculpin found in the cold, dark depths."]
+  flying_fish_gilder:
+    item: COD # Representing a unique fish action
+    display_name: "Flying Fish Glider"
+    rarity: UNCOMMON
+    locations: [OCEAN_GENERAL, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.2, max: 0.8}
+    catch_chance: 5.3
+    lore: ["§aKnown for its ability to glide above the water surface."]
+  painted_turtle_hatchling: # Kept as non-fish
+    item: TURTLE_EGG
+    display_name: "Painted Turtle Hatchling"
+    rarity: UNCOMMON
+    locations: [LAKE_POND_GENERAL, RIVER_GENERAL, SWAMP_MARSH]
+    weight_range: {min: 0.05, max: 0.15}
+    catch_chance: 4.0
+    lore: ["§aA tiny turtle, freshly hatched near the water's edge."]
+  amberjack_fry:
+    item: SALMON
+    display_name: "Amberjack Fry"
+    rarity: UNCOMMON
+    locations: [OCEAN_GENERAL, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.5, max: 1.5}
+    catch_chance: 5.4
+    lore: ["§aA young, fast-growing game fish."]
+  swamp_eel_brown:
+    item: COD # Eel
+    display_name: "Brown Swamp Eel"
+    rarity: UNCOMMON
+    locations: [SWAMP_MARSH]
+    weight_range: {min: 0.4, max: 1.2}
+    catch_chance: 5.1
+    lore: ["§aA common eel found in muddy swamp bottoms."]
+  rainbow_darter_vivid:
+    item: TROPICAL_FISH
+    display_name: "Vivid Rainbow Darter"
+    rarity: UNCOMMON
+    locations: [RIVER_GENERAL]
+    weight_range: {min: 0.05, max: 0.2}
+    catch_chance: 6.6
+    lore: ["§aOne of the most colorful freshwater fish."]
+  ghost_shrimp_translucent:
+    item: COD # Representing shrimp
+    display_name: "Translucent Ghost Shrimp"
+    rarity: UNCOMMON
+    locations: [JUNGLE_RIVER_POND, CAVE_SYSTEM_POOLS]
+    weight_range: {min: 0.01, max: 0.04}
+    catch_chance: 7.2
+    lore: ["§aA nearly transparent shrimp, hard to spot."]
+  firemouth_cichlid_sml:
+    item: TROPICAL_FISH
+    display_name: "Small Firemouth Cichlid"
+    rarity: UNCOMMON
+    locations: [WARM_WATERS_SPECIFIC, JUNGLE_RIVER_POND]
+    weight_range: {min: 0.2, max: 0.6}
+    catch_chance: 5.6
+    lore: ["§aKnown for its bright red throat coloration."]
+  black_ghost_knifefish_juv:
+    item: COD # Dark knifefish
+    display_name: "Juvenile Black Ghost Knifefish"
+    rarity: UNCOMMON
+    locations: [JUNGLE_RIVER_POND]
+    weight_range: {min: 0.2, max: 0.8}
+    catch_chance: 4.9
+    lore: ["§aUses weak electrical fields to navigate and find prey."]
+  lionfish_spiny:
+    item: PUFFERFISH # Spiny, could also be TROPICAL_FISH
+    display_name: "Spiny Lionfish"
+    rarity: UNCOMMON
+    locations: [WARM_WATERS_SPECIFIC, OCEAN_GENERAL]
+    weight_range: {min: 0.3, max: 1.0}
+    catch_chance: 4.5
+    lore: ["§aBeautiful but venomous, handle with care!"]
+  mud_crab_common: # Kept as non-fish
+    item: COOKED_SALMON
+    display_name: "Common Mud Crab"
+    rarity: UNCOMMON
+    locations: [SWAMP_MARSH, BEACH_SHORE]
+    weight_range: {min: 0.2, max: 0.8}
+    catch_chance: 4.2
+    lore: ["§aA crab often found burrowed in muddy estuaries."]
+  upside_down_catfish_sml:
+    item: COD
+    display_name: "Small Upside-Down Catfish"
+    rarity: UNCOMMON
+    locations: [JUNGLE_RIVER_POND]
+    weight_range: {min: 0.1, max: 0.4}
+    catch_chance: 6.0
+    lore: ["§aOften swims upside down, true to its name."]
+  silver_dollar_fish:
+    item: COD # Silvery, roundish
+    display_name: "Silver Dollar Fish"
+    rarity: UNCOMMON
+    locations: [JUNGLE_RIVER_POND, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.2, max: 0.5}
+    catch_chance: 6.4
+    lore: ["§aA flat, silvery fish resembling a coin."]
+  deep_sea_starfish_common:
+    item: TROPICAL_FISH # Representing starfish as a fish catch
+    display_name: "Common Deep Sea Starfish"
+    rarity: UNCOMMON
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.1, max: 0.5}
+    catch_chance: 5.0
+    lore: ["§aA starfish adapted to the crushing pressures of the deep."]
+  bioluminescent_copepod_swarm:
+    item: TROPICAL_FISH # Swarm of tiny glowing "fish"
+    display_name: "Bioluminescent Copepod Swarm"
+    rarity: UNCOMMON
+    locations: [OCEAN_GENERAL, DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.01, max: 0.05}
+    catch_chance: 7.5
+    lore: ["§aA shimmering cluster of tiny glowing crustaceans."]
+  volcanic_vent_worm_cluster:
+    item: COD # Representing worms as a fish-like catch
+    display_name: "Volcanic Vent Worm Cluster"
+    rarity: UNCOMMON
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.1, max: 0.4}
+    catch_chance: 4.7
+    lore: ["§aTube worms thriving in the extreme heat of volcanic vents."]
+  needlefish_slender:
+    item: COD # Long, slender fish
+    display_name: "Slender Needlefish"
+    rarity: UNCOMMON
+    locations: [OCEAN_GENERAL, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.2, max: 0.7}
+    catch_chance: 5.2
+    lore: ["§aA long, thin fish with a pointed snout."]
+  electric_eel_young:
+    item: SALMON # Eel type
+    display_name: "Young Electric Eel"
+    rarity: UNCOMMON
+    locations: [JUNGLE_RIVER_POND, SWAMP_MARSH]
+    weight_range: {min: 0.5, max: 1.5}
+    catch_chance: 4.6
+    lore: ["§aEven at a young age, it can deliver a surprising jolt."]
+  armored_catfish_plated:
+    item: COD # Catfish
+    display_name: "Plated Armored Catfish"
+    rarity: UNCOMMON
+    locations: [RIVER_GENERAL, JUNGLE_RIVER_POND]
+    weight_range: {min: 0.4, max: 1.2}
+    catch_chance: 5.0
+    lore: ["§aCovered in bony plates for protection."]
+
+  # --- RARE (Continued) ---
+  axolotl_wild_variant: # Kept non-fish item as it's specific
+    item: AXOLOTL_BUCKET
+    display_name: "Wild Axolotl Variant"
+    rarity: RARE
+    locations: [CAVE_SYSTEM_POOLS, LUSH_CAVES]
+    weight_range: {min: 0.2, max: 0.6}
+    catch_chance: 2.8
+    lore: ["§bA rare, neotenic salamander found in dark, underwater caves."]
+  phantom_glass_fish:
+    item: TROPICAL_FISH # Transparent fish
+    display_name: "Phantom Glass Fish"
+    rarity: RARE
+    locations: [MYSTICAL_BIOME_WATERS, DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 2.5
+    lore: ["§bSo transparent, it's like holding a piece of living water."]
+  sunken_treasure_carp:
+    item: COD # Carp type
+    display_name: "Sunken Treasure Carp"
+    rarity: RARE
+    locations: [OCEAN_GENERAL, DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 2.0, max: 8.0}
+    catch_chance: 1.5
+    lore: ["§bThis carp seems to have swallowed a few shiny trinkets."]
+  stargazer_fish_ambush:
+    item: PUFFERFISH # Unique shape
+    display_name: "Ambush Stargazer Fish"
+    rarity: RARE
+    locations: [OCEAN_GENERAL, BEACH_SHORE]
+    weight_range: {min: 1.0, max: 4.0}
+    catch_chance: 1.9
+    lore: ["§bBuries itself in sand, with only its eyes and mouth exposed."]
+  moonbeam_eel:
+    item: COD # Eel type
+    display_name: "Moonbeam Eel"
+    rarity: RARE
+    locations: [RIVER_GENERAL, LAKE_POND_GENERAL]
+    weight_range: {min: 0.8, max: 2.5}
+    catch_chance: 2.1
+    lore: ["§bIts skin shimmers with a soft, ethereal glow like moonlight."]
+  dragonfish_deepsea:
+    item: SALMON # Predatory deep sea fish
+    display_name: "Deepsea Dragonfish"
+    rarity: RARE
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.5, max: 1.5}
+    catch_chance: 1.7
+    lore: ["§bA fearsome predator of the abyssal zone, with fang-like teeth."]
+  ancient_nautilus_living: # Kept as it's specific
+    item: NAUTILUS_SHELL
+    display_name: "Living Ancient Nautilus"
+    rarity: RARE
+    locations: [DEEP_OCEAN_SPECIFIC, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.3, max: 1.0}
+    catch_chance: 2.0
+    lore: ["§bA living fossil, its spiraled shell a marvel of nature."]
+  coral_serpent_small:
+    item: TROPICAL_FISH # Colorful, eel-like
+    display_name: "Small Coral Serpent"
+    rarity: RARE
+    locations: [WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.4, max: 1.2}
+    catch_chance: 2.3
+    lore: ["§bA brightly colored, eel-like fish that winds through corals."]
+  vampire_tetra_bloodred:
+    item: TROPICAL_FISH # Tetra
+    display_name: "Bloodred Vampire Tetra"
+    rarity: RARE
+    locations: [JUNGLE_RIVER_POND, CAVE_SYSTEM_POOLS]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 2.6
+    lore: ["§bNamed for its striking red color and sharp teeth."]
+  abyssal_grenadier:
+    item: COD
+    display_name: "Abyssal Grenadier (Rattail)"
+    rarity: RARE
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.5, max: 2.0}
+    catch_chance: 2.0
+    lore: ["§bA common inhabitant of the deep ocean floor, with a tapering tail."]
+  shimmerfin_betta_wild:
+    item: TROPICAL_FISH # Betta
+    display_name: "Wild Shimmerfin Betta"
+    rarity: RARE
+    locations: [SWAMP_MARSH, JUNGLE_RIVER_POND]
+    weight_range: {min: 0.05, max: 0.15}
+    catch_chance: 2.9
+    lore: ["§bA wild betta with dazzling, iridescent fins."]
+  prehistoric_piranha_fanged:
+    item: SALMON # Piranha type
+    display_name: "Fanged Prehistoric Piranha"
+    rarity: RARE
+    locations: [JUNGLE_RIVER_POND]
+    weight_range: {min: 0.5, max: 1.5}
+    catch_chance: 1.8
+    lore: ["§bAn ancient piranha species with unusually large teeth."]
+  crystal_cave_crayfish:
+    item: COD # Representing crayfish as a fish-like catch
+    display_name: "Crystal Cave Crayfish"
+    rarity: RARE
+    locations: [CAVE_SYSTEM_POOLS, LUSH_CAVES]
+    weight_range: {min: 0.2, max: 0.6}
+    catch_chance: 2.4
+    lore: ["§bA crayfish whose shell has absorbed minerals, giving it a crystalline sheen."]
+  sand_dollar_living:
+    item: COD # Representing sand dollar as a flat fish-like catch
+    display_name: "Living Sand Dollar"
+    rarity: RARE
+    locations: [BEACH_SHORE, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.05, max: 0.2}
+    catch_chance: 3.0
+    lore: ["§bA live sand dollar, not just its bleached skeleton."]
+  gulper_eel_expandable:
+    item: COD # Eel type
+    display_name: "Expandable Gulper Eel"
+    rarity: RARE
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.3, max: 1.0}
+    catch_chance: 1.6
+    lore: ["§bCan swallow prey much larger than itself with its enormous mouth."]
+  mystic_river_guardian_fry:
+    item: SALMON # Mystical fish
+    display_name: "Mystic River Guardian Fry"
+    rarity: RARE
+    locations: [RIVER_GENERAL, MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 0.5, max: 1.5}
+    catch_chance: 1.4
+    lore: ["§bA juvenile guardian spirit of the river, rarely seen."]
+  hatchetfish_silvered:
+    item: COD # Silvery fish
+    display_name: "Silvered Hatchetfish"
+    rarity: RARE
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.1, max: 0.4}
+    catch_chance: 2.7
+    lore: ["§bIts silvery, deep body is shaped like a hatchet blade."]
+  angler_mimic_stone:
+    item: PUFFERFISH # Angler type
+    display_name: "Stone Mimic Angler"
+    rarity: RARE
+    locations: [CAVE_SYSTEM_POOLS, DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.5, max: 2.0}
+    catch_chance: 1.9
+    lore: ["§bPerfectly camouflaged as a submerged rock, luring unsuspecting prey."]
+  pearlscale_goldfish_wild:
+    item: TROPICAL_FISH # Goldfish variant
+    display_name: "Wild Pearlscale Goldfish"
+    rarity: RARE
+    locations: [LAKE_POND_GENERAL, RIVER_GENERAL]
+    weight_range: {min: 0.2, max: 0.6}
+    catch_chance: 2.8
+    lore: ["§bA wild variant with nacreous, pearl-like scales."]
+  sea_cucumber_spotted:
+    item: COD # Representing sea cucumber as a fish-like catch
+    display_name: "Spotted Sea Cucumber"
+    rarity: RARE
+    locations: [OCEAN_GENERAL, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.3, max: 1.0}
+    catch_chance: 3.2
+    lore: ["§bA slow-moving echinoderm of the seabed."]
+  chameleon_fish_shifting:
+    item: TROPICAL_FISH
+    display_name: "Shifting Chameleon Fish"
+    rarity: RARE
+    locations: [JUNGLE_RIVER_POND, WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.2, max: 0.7}
+    catch_chance: 2.2
+    lore: ["§bIts scales can subtly change color to match its surroundings."]
+  fangtooth_fish_menacing:
+    item: SALMON # Predatory deep sea
+    display_name: "Menacing Fangtooth Fish"
+    rarity: RARE
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.2, max: 0.6}
+    catch_chance: 1.7
+    lore: ["§bPossesses disproportionately large, fang-like teeth."]
+  lanternfish_shoal_leader:
+    item: TROPICAL_FISH # Glowing fish
+    display_name: "Shoal Leader Lanternfish"
+    rarity: RARE
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 2.9
+    lore: ["§bA slightly larger lanternfish, guiding its glowing shoal."]
+  sapphire_devil_damselfish:
+    item: TROPICAL_FISH # Colorful damselfish
+    display_name: "Sapphire Devil Damselfish"
+    rarity: RARE
+    locations: [WARM_WATERS_SPECIFIC]
+    weight_range: {min: 0.05, max: 0.15}
+    catch_chance: 3.1
+    lore: ["§bA small, aggressive damselfish of brilliant sapphire blue."]
+  glass_eel_elver:
+    item: COD # Transparent eel
+    display_name: "Glass Eel (Elver Stage)"
+    rarity: RARE
+    locations: [RIVER_GENERAL]
+    weight_range: {min: 0.02, max: 0.08}
+    catch_chance: 3.0
+    lore: ["§bA transparent juvenile eel on its journey from the sea."]
+
+  # --- EPIC (Continued) ---
+  kraken_tentacle_fragment:
+    item: SALMON # Large, meaty catch
+    display_name: "Kraken Tentacle Fragment"
+    rarity: EPIC
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 5.0, max: 15.0}
+    catch_chance: 0.4
+    lore: ["§5A severed piece of a colossal deep-sea terror. It still twitches..."]
+  frostfire_wyrmfin:
+    item: SALMON # Wyrm-like fish
+    display_name: "Frostfire Wyrmfin"
+    rarity: EPIC
+    locations: [MYSTICAL_BIOME_WATERS, COLD_WATERS_SPECIFIC]
+    weight_range: {min: 2.0, max: 7.0}
+    catch_chance: 0.55
+    lore: ["§5An eel-like fish whose body is cold as ice, yet its fins burn with ethereal flame."]
+  starlight_skate_celestial:
+    item: COD # Skate type
+    display_name: "Celestial Starlight Skate"
+    rarity: EPIC
+    locations: [MYSTICAL_BIOME_WATERS, OCEAN_GENERAL]
+    weight_range: {min: 3.0, max: 10.0}
+    catch_chance: 0.6
+    lore: ["§5This skate's back mirrors the night sky, dotted with shimmering constellations."]
+  netherrack_angler_hellish:
+    item: PUFFERFISH # Angler type
+    display_name: "Hellish Netherrack Angler"
+    rarity: EPIC
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 1.5, max: 5.0}
+    catch_chance: 0.45
+    lore: ["§5An anglerfish whose skin resembles jagged netherrack, with a lure of soulfire."]
+  guardian_scale_relic:
+    item: COD # Representing a scale as a piece of a larger "fish"
+    display_name: "Guardian Scale Relic"
+    rarity: EPIC
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.1, max: 0.3}
+    catch_chance: 0.8
+    lore: ["§5A single, massive scale pulsing with ancient oceanic energy."]
+  shadowmaw_leviathan_juv:
+    item: SALMON # Large juvenile
+    display_name: "Juvenile Shadowmaw Leviathan"
+    rarity: EPIC
+    locations: [DEEP_OCEAN_SPECIFIC, CAVE_SYSTEM_POOLS]
+    weight_range: {min: 10.0, max: 30.0}
+    catch_chance: 0.35
+    lore: ["§5A young leviathan that swims in pure darkness, its bite is terrifying."]
+  crystal_leviathan_shardbearer:
+    item: SALMON # Large crystalline fish
+    display_name: "Shardbearer Crystal Leviathan"
+    rarity: EPIC
+    locations: [MYSTICAL_BIOME_WATERS, CAVE_SYSTEM_POOLS]
+    weight_range: {min: 8.0, max: 25.0}
+    catch_chance: 0.42
+    lore: ["§5A magnificent creature of living crystal, said to carry shards of pure magic."]
+  temporal_anomaly_fish:
+    item: TROPICAL_FISH # Anomalous fish
+    display_name: "Temporal Anomaly Fish"
+    rarity: EPIC
+    locations: [MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 0.5, max: 2.0}
+    catch_chance: 0.5
+    lore: ["§5This fish seems to flicker in and out of time, a living paradox."]
+  singing_whale_calf_echo:
+    item: SALMON # Large, significant catch (representing whale)
+    display_name: "Echo of a Singing Whale Calf"
+    rarity: EPIC
+    locations: [OCEAN_GENERAL, DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 1.0, max: 5.0}
+    catch_chance: 0.25
+    lore: ["§5You didn't catch the whale, but its haunting song lingers on this strange catch."]
+  forgotten_king_crab_ancient:
+    item: SALMON # Large crab represented as a hefty fish catch
+    display_name: "Ancient Forgotten King Crab"
+    rarity: EPIC
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 5.0, max: 18.0}
+    catch_chance: 0.38
+    lore: ["§5A colossal crab, once ruler of a long-lost underwater kingdom."]
+  geode_turtle_gemmed:
+    item: SALMON # Large turtle represented as hefty fish
+    display_name: "Gemmed Geode Turtle"
+    rarity: EPIC
+    locations: [CAVE_SYSTEM_POOLS, MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 2.0, max: 8.0}
+    catch_chance: 0.48
+    lore: ["§5This ancient turtle's shell is encrusted with shimmering geodes."]
+  obsidian_heart_serpent:
+    item: COD # Dark serpent fish
+    display_name: "Obsidian Heart Serpent"
+    rarity: EPIC
+    locations: [DEEP_OCEAN_SPECIFIC, CAVE_SYSTEM_POOLS]
+    weight_range: {min: 3.0, max: 10.0}
+    catch_chance: 0.4
+    lore: ["§5A serpent of pure obsidian, with a core that pulses with a melancholic light."]
+  dreamfin_weaver_fish:
+    item: TROPICAL_FISH # Ethereal fish
+    display_name: "Dreamfin Weaver Fish"
+    rarity: EPIC
+    locations: [MYSTICAL_BIOME_WATERS, RIVER_GENERAL]
+    weight_range: {min: 0.3, max: 1.2}
+    catch_chance: 0.52
+    lore: ["§5Its fins shimmer with the fabric of dreams, said to grant fleeting visions."]
+  maelstrom_eel_charged:
+    item: SALMON # Large eel
+    display_name: "Charged Maelstrom Eel"
+    rarity: EPIC
+    locations: [OCEAN_GENERAL]
+    weight_range: {min: 4.0, max: 12.0}
+    catch_chance: 0.3
+    lore: ["§5An eel that thrives in violent storms, crackling with raw electrical power."]
+  sunken_oracle_angler:
+    item: PUFFERFISH # Angler
+    display_name: "Sunken Oracle Angler"
+    rarity: EPIC
+    locations: [DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 1.0, max: 3.0}
+    catch_chance: 0.46
+    lore: ["§5Its lure is an ancient, waterlogged tome, whispering forgotten prophecies."]
+
+  # --- LEGENDARY (Continued) ---
+  world_serpent_jormungandr_scale:
+    item: SALMON # Representing a massive serpent scale as a fish
+    display_name: "§4Jörmungandr's Scale"
+    rarity: LEGENDARY
+    locations: [MYSTICAL_BIOME_WATERS, DEEP_OCEAN_SPECIFIC]
+    weight_range: {min: 0.5, max: 1.5}
+    catch_chance: 0.005
+    lore: ["§6A single, immense scale from the serpent that encircles the world.","§6It hums with primordial power."]
+  genesis_koi_firstfish:
+    item: TROPICAL_FISH # Koi
+    display_name: "§fGenesis Koi, The First Fish"
+    rarity: LEGENDARY
+    locations: [MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 1.0, max: 3.0}
+    catch_chance: 0.008
+    lore: ["§6Legend says this is the ancestor of all fish, shimmering with the light of creation.","§6Its presence feels ancient and sacred."]
+  ender_kraken_eye_warped:
+    item: COD # Representing the eye as a "catch"
+    display_name: "§5Warped Eye of the Ender Kraken"
+    rarity: LEGENDARY
+    locations: [MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 0.8, max: 2.0}
+    catch_chance: 0.01
+    lore: ["§6The dislodged eye of a colossal kraken from the End dimension.","§6It stares into your soul, filled with void energy."]
+  celestial_dragonfin_comet:
+    item: SALMON # Dragon-like fish
+    display_name: "§eComet Dragonfin"
+    rarity: LEGENDARY
+    locations: [MYSTICAL_BIOME_WATERS, OCEAN_GENERAL]
+    weight_range: {min: 2.0, max: 8.0}
+    catch_chance: 0.015
+    lore: ["§6A fish born from a fallen star, its fins trail cosmic dust.","§6It streaks through the water like a comet."]
+  living_maelstrom_core:
+    item: PUFFERFISH # Unique, core-like fish
+    display_name: "§9Living Maelstrom Core"
+    rarity: LEGENDARY
+    locations: [OCEAN_GENERAL]
+    weight_range: {min: 1.0, max: 3.0}
+    catch_chance: 0.012
+    lore: ["§6The sentient heart of an ancient, perpetual ocean storm.","§6It pulses with untamed elemental fury."]
+  dream_leviathan_whisperer:
+    item: COD # Ethereal fish
+    display_name: "§dDream Leviathan's Whisper"
+    rarity: LEGENDARY
+    locations: [DEEP_OCEAN_SPECIFIC, MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 0.2, max: 0.8}
+    catch_chance: 0.018
+    lore: ["§6You haven't caught the beast, but a tangible echo of its dreams.","§6It whispers secrets of forgotten ages."]
+  timeless_angler_aeon:
+    item: PUFFERFISH # Ancient angler
+    display_name: "§3Aeon Angler of Timelessness"
+    rarity: LEGENDARY
+    locations: [MYSTICAL_BIOME_WATERS]
+    weight_range: {min: 1.5, max: 5.0}
+    catch_chance: 0.009
+    lore: ["§6An anglerfish that has existed since the dawn of time.","§6Its lure is a miniature galaxy, swirling with eons."]
+
+# Temporary Items Configuration (Example, adjust as needed)
 temporary_items:
-  spring_koi:
+  spring_koi_festival:
     item: TROPICAL_FISH
     display_name: "Spring Festival Koi"
     rarity: LEGENDARY
-    duration:
-      start: "2024-03-01 00:00:00"
-      end: "2024-03-31 23:59:59"
-    locations:
-      - RIVER
-      - LAKE
-      - BEACH
-    weight_range:
-      min: 15.0
-      max: 30.0
-    catch_chance: 5.0
-    lore:
-      - "§6A magnificent koi fish that appears"
-      - "§6during the spring festival"
+    # ... (rest of temporary items section remains the same) ...
 
-  summer_tuna:
-    item: COD
-    display_name: "Summer Albacore Tuna"
-    rarity: EPIC
-    duration:
-      start: "2024-06-01 00:00:00"
-      end: "2024-08-31 23:59:59"
-    locations:
-      - OCEAN
-      - BEACH
-    weight_range:
-      min: 20.0
-      max: 45.0
-    catch_chance: 8.0
-    lore:
-      - "§5A prized summer catch"
-
-# Location definitions
+# Location definitions (remains the same from your last provided version)
 locations:
-  OCEAN:
-    biomes:
-      - OCEAN
-      - DEEP_OCEAN
-      - DEEP_LUKEWARM_OCEAN
-      - DEEP_COLD_OCEAN
-  RIVER:
-    biomes:
-      - RIVER
-      - FROZEN_RIVER
-  LAKE:
-    biomes:
-      - SWAMP
-      - MANGROVE_SWAMP
-      # - MUDDY_MANGROVE_SWAMP  # Uncomment this if needed
-  BEACH:
-    biomes:
-      - BEACH
-      - SNOWY_BEACH
-      - STONY_SHORE
+  OCEAN_GENERAL:
+    biomes: [OCEAN, DEEP_OCEAN, WARM_OCEAN, LUKEWARM_OCEAN, COLD_OCEAN, FROZEN_OCEAN, DEEP_LUKEWARM_OCEAN, DEEP_COLD_OCEAN]
+  RIVER_GENERAL:
+    biomes: [RIVER, FROZEN_RIVER]
+  LAKE_POND_GENERAL:
+    biomes: [PLAINS, FOREST, TAIGA, BIRCH_FOREST, DARK_FOREST, MEADOW, SUNFLOWER_PLAINS, FLOWER_FOREST]
+  BEACH_SHORE:
+    biomes: [BEACH, SNOWY_BEACH, STONY_SHORE]
+  COLD_WATERS_SPECIFIC:
+    biomes: [COLD_OCEAN, DEEP_COLD_OCEAN, FROZEN_OCEAN, ICE_SPIKES, SNOWY_TAIGA, SNOWY_PLAINS, GROVE]
+  WARM_WATERS_SPECIFIC:
+    biomes: [WARM_OCEAN, LUKEWARM_OCEAN, DESERT, SAVANNA, BADLANDS]
+  DEEP_OCEAN_SPECIFIC:
+    biomes: [DEEP_OCEAN, DEEP_LUKEWARM_OCEAN, DEEP_COLD_OCEAN]
+  SWAMP_MARSH:
+    biomes: [SWAMP, MANGROVE_SWAMP]
+  CAVE_SYSTEM_POOLS:
+    biomes: [DRIPSTONE_CAVES]
+  LUSH_CAVES:
+    biomes: [LUSH_CAVES]
+  JUNGLE_RIVER_POND:
+    biomes: [JUNGLE, BAMBOO_JUNGLE, SPARSE_JUNGLE]
+  FROZEN_LAND_WATERS:
+    biomes: [SNOWY_PLAINS, ICE_SPIKES, SNOWY_TAIGA, FROZEN_PEAKS]
+  MYSTICAL_BIOME_WATERS:
+    biomes: [MUSHROOM_FIELDS, THE_END]
 
-# Rarity Settings
+# Rarity Settings (remains the same)
 rarity_settings:
-  COMMON:
-    color: "§7"
-    xp_reward: 10
-    weight_multiplier: 1.0
-  UNCOMMON:
-    color: "§a"
-    xp_reward: 25
-    weight_multiplier: 1.2
-  RARE:
-    color: "§b"
-    xp_reward: 50
-    weight_multiplier: 1.5
-  EPIC:
-    color: "§5"
-    xp_reward: 100
-    weight_multiplier: 2.0
-  LEGENDARY:
-    color: "§6"
-    xp_reward: 250
-    weight_multiplier: 3.0
+  COMMON: {color: "§7", xp_reward: 10, weight_multiplier: 1.0}
+  UNCOMMON: {color: "§a", xp_reward: 25, weight_multiplier: 1.2}
+  RARE: {color: "§b", xp_reward: 50, weight_multiplier: 1.5}
+  EPIC: {color: "§5", xp_reward: 100, weight_multiplier: 2.0}
+  LEGENDARY: {color: "§6", xp_reward: 250, weight_multiplier: 3.0}

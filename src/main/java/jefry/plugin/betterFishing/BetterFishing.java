@@ -2,6 +2,8 @@ package jefry.plugin.betterFishing;
 
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 public final class BetterFishing extends JavaPlugin {
 
@@ -11,6 +13,7 @@ public final class BetterFishing extends JavaPlugin {
     private static ScoreboardManager scoreboardManager;
     private FishingItemManager fishingItemManager;
     private FishingAdminManager fishingAdminManager;
+    private FishingMinigameManager fishingMinigameManager; // <<< NEW
 
 
     @Override
@@ -30,8 +33,10 @@ public final class BetterFishing extends JavaPlugin {
         // Initialize fishing manager
         fishingManager = new FishingManager(this, fishingRodsConfig, fishingItemManager);
 
-        // Initialize fishing listener
-        fishingListener = new FishingListener(fishingItemManager, this);
+        fishingMinigameManager = new FishingMinigameManager(this, fishingItemManager, scoreboardManager);
+
+        fishingListener = new FishingListener(fishingItemManager, this, fishingMinigameManager, scoreboardManager);
+
 
         FishingRodCommand fishingRodCommand = new FishingRodCommand(
                 this,
@@ -52,6 +57,7 @@ public final class BetterFishing extends JavaPlugin {
         getServer().getPluginManager().registerEvents(fishingManager, this);
         getServer().getPluginManager().registerEvents(fishingListener, this);
         getServer().getPluginManager().registerEvents(getFishingAdminManager(), this);
+        getServer().getPluginManager().registerEvents(fishingMinigameManager, this); // <<< NEW: Register minigame manager for its events
 
         // Register Fishing Rod Upgrade GUI
         FishingRodUpgradeGUI upgradeGUI = new FishingRodUpgradeGUI(this, fishingRodsConfig);
@@ -67,10 +73,12 @@ public final class BetterFishing extends JavaPlugin {
         if (scoreboardManager != null) {
             scoreboardManager.saveData();
         }
+        if (fishingMinigameManager != null) {
+            fishingMinigameManager.cancelAllMinigamesForShutdown();
+        }
         getLogger().info("BetterFishing plugin has been disabled!");
     }
 
-    // Optional: Add a getter for ScoreboardManager if other classes need access
     public static ScoreboardManager getScoreboardManager() {
         return scoreboardManager;
     }
@@ -87,5 +95,9 @@ public final class BetterFishing extends JavaPlugin {
 
     private FishingItemManager getFishingItemManager() {
         return fishingItemManager;
+    }
+
+    public FishingMinigameManager getFishingMinigameManager() {
+        return fishingMinigameManager;
     }
 }
