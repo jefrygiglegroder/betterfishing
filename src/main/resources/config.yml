@@ -1,0 +1,14 @@
+backpack_upgrades:
+
+  "1": # Tier 1 Upgrade (unlocks slots 10-18, total 18 slots including hotbar)
+    required_level: 5
+    cost: 10000.0
+    description: "&7Unlocks the first row of your main inventory (&e9 slots&7)."
+  "2": # Tier 2 Upgrade (unlocks slots 19-27, total 27 slots including hotbar)
+    required_level: 15
+    cost: 50000.0
+    description: "&7Unlocks the second row of your main inventory (&e9 more slots&7)."
+  "3": # Tier 3 Upgrade (unlocks slots 28-36, total 36 slots including hotbar)
+    required_level: 30
+    cost: 150000.0
+    description: "&7Unlocks the final row of your main inventory (&eall 36 slots&7)."

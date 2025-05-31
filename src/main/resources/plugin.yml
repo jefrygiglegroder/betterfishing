@@ -3,33 +3,42 @@ version: '2.0.0'
 main: jefry.plugin.betterFishing.BetterFishing
 api-version: '1.21'
 depend: [Vault]
-softdepend: [Essentials, Economy]
+softdepend: [Essentials]
 
 commands:
-  fishrod:
-    description: BetterFishing rod management command
-    usage: /betterfishing <reload|give|reset> [tier] [player]
-    aliases: [bfishing, betterfishing]
+  betterfishing: # Main command
+    description: Main command for the BetterFishing plugin.
+    usage: /betterfishing <subcommand> [args...]
+    aliases: [bf, bfish, fishrod]
     permission: betterfishing.use
+
 permissions:
   betterfishing.use:
-    description: Base permission for BetterFishing commands
+    description: Base permission for BetterFishing commands.
     default: op
   betterfishing.reload:
-    description: Allows reloading fishing rod configurations
+    description: Allows reloading BetterFishing configurations.
     default: op
   betterfishing.give:
-    description: Allows giving fishing rods
+    description: Allows giving custom fishing rods.
     default: op
-  betterfishing.adminRod:
-    description: Allows managing fishing rods and rod configurations
+  betterfishing.reset: # General reset permission
+    description: Allows resetting plugin data like scoreboards.
     default: op
+  # Admin Panel Permissions
   betterfishing.admin:
-    description: Access to the main admin panel
+    description: Access to the main admin panel via GUI.
     default: op
   betterfishing.admin.rods:
-    description: Manage fishing rods
+    description: Allows managing fishing rod configurations (GUI/commands).
     default: op
   betterfishing.admin.fish:
-    description: Manage fish items
+    description: Allows managing fish item configurations (GUI/commands).
+    default: op
+  # Backpack System Permissions
+  betterfishing.backpack.use:
+    description: Allows players to open and use the backpack upgrade GUI.
+    default: true
+  betterfishing.admin.backpack:
+    description: Allows admins to manage player backpack slots via commands.
     default: op
